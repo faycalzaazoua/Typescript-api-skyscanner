@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter ,Routes , Route} from "react-router-dom"
 import './App.css';
+import Home from './components/home'
+import Vols from "./components/vols";
+import Navbar from "./components/navbar";
+import Airport from "./components/airport";
 
-function App() {
+const App: React.FC = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={ < Home />} />
+        <Route path="/airport" element={ < Airport />} />
+
+        <Route path="/vols" element={ < Vols />} />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 
