@@ -41,7 +41,7 @@ const AirportItem: React.FC<VolProps> = ({vol}) =>{
         
             </CardTop>
             <CardBottom>
-                <button onClick={handleFavoriteClick}>Ajouter au favoris</button>
+                {/* <button onClick={handleFavoriteClick}>Ajouter au favoris</button> */}
             </CardBottom>
         </CardWrapper>
 

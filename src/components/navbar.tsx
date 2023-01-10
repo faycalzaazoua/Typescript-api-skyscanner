@@ -13,8 +13,7 @@ export default function Vols() {
             <Link id="navbutton" to="/vols">Les vols</Link>
             &ensp; &ensp;
             <Link id="navbutton" to="/favoriAirport">Mes favoris Airport</Link>
-            &ensp; &ensp;
-            <Link id="navbutton" to="/favoriFlight">Mes favoris Flight</Link>
+
         </nav>
 
     )

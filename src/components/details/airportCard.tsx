@@ -10,7 +10,8 @@ interface AirportProps{
 
 const AirportItem: React.FC<AirportProps> = ({airport}) =>{
 
-    const handleFavoriteClick = () => {
+    const handleFavoriteClick = (  ) => {
+        
         let stringifiedFavoriteIds = localStorage.getItem("favoriteIds");
         let favoriteIds = [];
     

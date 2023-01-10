@@ -67,6 +67,13 @@ font-size : 25px;
   background-color: rosybrown;
 }
 
-.photogeste{
-  height:200px;
+
+
+#task{
+  text-align:left;
+  background-color: green;
+}
+#notask{
+  text-align:left;
+  background-color: red;
 }

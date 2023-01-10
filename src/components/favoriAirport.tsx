@@ -4,6 +4,8 @@ import '../App.css';
 import AirportItem from './details/airportCard';
 import { Airport } from "../types/typesAirport"
 import { Button, Form, Header, Row, Search, Wrapper } from './styled';
+import { CardBottom, CardTop, CardWrapper, Delivery, Setup } from "./styled";
+
 import axios from "axios";
 
 
@@ -11,6 +13,10 @@ const App: React.FC = () => {
   const [airports, setAirport] = useState<Airport[]>([])
   const [tab, setTab] = useState<string | null >("")
   const [final, setFinal] = useState<string[]>([])
+  const [GTF, setGTF] = useState<Airport[]>([])
+  const [GTFA, setGTFA] = useState<String[]>([])
+
+
   const [error, setError] = useState<boolean>(false)
   const [message, setMessage] = useState<string>("")
 
@@ -29,40 +35,67 @@ const App: React.FC = () => {
    return stringifiedFavoriteIds;
         
     }
-    useEffect(() => {
+    useEffect( () => {
       setTab(fetchFavAer);
       // console.log(tab);
       if(tab != null){
-        let a = tab.replace('[', '');
+        let a = tab.replace('["', '');
         // console.log(a);
-        let b = a.replace(']', '');
+        let b = a.replace('"]', '');
         // console.log(b);
-        let c = b.split(',');
+        let c = b.split('","');
         // console.log(c);
         setFinal(c);
 
-          console.log(final);
+        setGTFA(c);
+
+        let GT :Airport[] = [];
+        
+        for(let i = 0; i < c.length ; i++){
+
+        
+          // console.log(c);
+          const options = {
+            method: 'GET',
+            url: 'https://skyscanner50.p.rapidapi.com/api/v1/searchAirport',
+            params: {query: c[i]},
+            headers: {
+              'X-RapidAPI-Key': 'c2a4b54320msh39c2bd408379f9bp100c21jsnd83fb8c8efcf',
+              'X-RapidAPI-Host': 'skyscanner50.p.rapidapi.com'
+            }
+          };
+          
+          axios.request(options).then(function (response) {
+            const data = response.data;
+            // console.log(response.data);
+            setAirport(data.data)
+            GT.push(data.data);
+            // console.log(data.data);
+
+          }).catch(function (error) {
+            console.error(error);
+          });
+
+
+        }
+            setGTF(GT);
 
         
       }
-  }, [tab]);   
+  }, [tab]);  
+  
+  
+  
+  // console.log(GTFA);
 
+  
 
-    const options = {
-      method: 'GET',
-      url: 'https://skyscanner50.p.rapidapi.com/api/v1/searchAirport',
-      params: {query: 'london'},
-      headers: {
-        'X-RapidAPI-Key': 'c2a4b54320msh39c2bd408379f9bp100c21jsnd83fb8c8efcf',
-        'X-RapidAPI-Host': 'skyscanner50.p.rapidapi.com'
-      }
-    };
-    
-    axios.request(options).then(function (response) {
-        // console.log(response.data);
-    }).catch(function (error) {
-        console.error(error);
-    });
+// GTF.map(
+//   (fav :Airport) => 
+//   console.log(fav.CityName)
+
+// )
+   
 
 
 
@@ -74,12 +107,26 @@ const App: React.FC = () => {
         </Row>
 
         <div>
-          <p>Compte tenu des crash fréquent de l'api sur les "flights", j'ai appliquer le système d'ajout de favori sur les aeroports 
-            qui eux ne tombaient pas down. Je n'ai pas eu le temps de faire un affichage correct mais je récupère ci dessous les "GeoId" 
-            de chaque aeroport ajouté en favori (localStorage) :
+          <p>Voici les lieux Aeroport mis en favoris :
 
           </p>
-          { final }
+          { GTFA.map( (fav ) =>
+         
+            <CardWrapper>
+            <CardTop>
+                {
+                    <>
+                    <Setup>{fav}</Setup>
+                    <button >Supprimer</button>
+                    </>
+                }
+        
+            </CardTop>
+            <CardBottom>
+                <p></p>
+            </CardBottom>
+        </CardWrapper>
+          ) } 
         </div>
       </Wrapper>
     </div>

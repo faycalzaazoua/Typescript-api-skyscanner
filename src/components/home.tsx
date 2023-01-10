@@ -9,20 +9,29 @@ export default function Home() {
         <div>
             <h1 id="title"> Bienvenue sur la page d'accueil</h1>
             <div id="geste">
-                <h3>
-                    Les gestes barrières covid dans l'aeroport
-                </h3>
-                <pre>
-                Le port du masque dans les situations à risque agit comme une barrière <br />
-                physique contre les projections de particules virales dans l’air lorsqu’il est correctement utilisé. <br />
-                L’hygiène des mains avec un lavage régulier à l’eau et au savon pendant 30 secondes, reste essentielle. <br />
-                Le fait d’éviter de se toucher le visage, en particulier le nez, la bouche et les yeux, de se couvrir <br />
-                systématiquement le nez et la bouche en toussant ou en éternuant dans son coude, et de recourir à des mouchoirs <br />
-                à usage unique est fortement recommandé.
-                Au contact des autres, il est vivement recommandé d’aérer régulièrement <br />
-                la pièce (10 minutes toutes les heures si possible), de se saluer sans se serrer la main et d’éviter les embrassades.
-                </pre>
+                
+        <div id="task">
+                <h3>Fait :  </h3>
+                <h4>- Pouvoir rechercher un aeroport par localité</h4>
+                <h4>- Pouvoir ajouter un de ces aeroports à une liste de favori (j'ai effectué l'ajout de favori sur les aeroport plutot
+                    que sur les vols car la parti vol est constamment down donc très compliqué de bosser dessus + de 5min)</h4>
+                <h4>- Afficher ma liste d'aeroports favori via une page dédié à ca "Mes favoris airport"</h4>
+                <h4>- Pouvoir rechercher un vol en indiquant departure, destination et une date depuis une page dédié "Les vols"</h4>
+                <h4>- Avoir accès à une page de détail pour chacun des vols - redirection vers une page detail/id_du_vol - Non finalisé 
+                    par manque de temps et de possibilité de faire des tests
+                </h4>
+                </div>
+                <div id="notask">
+                <h3>Non Fait :  </h3>
+                <h4>- Apporter du style à la plateforme</h4>
+                <h4>- gestion des vols retours</h4>
+                <h4>- Pouvoir supprimer un favoris</h4>
+                <h4>- Finaliser la vue détail</h4>
 
+                </div>
+
+                <p>Mardi10/01 à 23h54</p>
+        
 
             </div>
         </div>
