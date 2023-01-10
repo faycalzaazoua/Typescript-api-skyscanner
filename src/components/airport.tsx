@@ -1,18 +1,8 @@
-// import React from "react";
 
-// export default function Airport() {
-//     return(
-        
-//         <div>
-//             <h1>Les aeroports</h1>
-//         </div>
-
-//     )
-// }
 import React, { useState} from "react"
 import '../App.css';
-import AirportItem from './Joke';
-import { Airport } from "../types/types2"
+import AirportItem from './details/airportCard';
+import { Airport } from "../types/typesAirport"
 import { Button, Form, Header, Row, Search, Wrapper } from './styled';
 import axios from "axios";
 
@@ -42,7 +32,6 @@ const App: React.FC = () => {
     };
 
     axios.request(options).then(function (response) {
-      console.log(response.data);
       const data = response.data;
       if(data.error){
         setError(true)
@@ -62,7 +51,7 @@ const App: React.FC = () => {
     <div>
       <Wrapper>
         <Row>
-          <Header> Aeroport </Header>
+          <Header >Trouver un Aeroport </Header>
         </Row>
         <Form onSubmit={getAirport}>
           <Search
@@ -70,6 +59,7 @@ const App: React.FC = () => {
             placeholder='Recherche'
             value={search} 
             onChange={handleChange}/>
+            
             <Button type='submit'> Rechercher </Button>
         </Form>
         <div>

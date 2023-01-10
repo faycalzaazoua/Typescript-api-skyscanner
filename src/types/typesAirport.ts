@@ -3,4 +3,5 @@ export type Airport = {
     CityName: string;
     PlaceName: string;
     GeoId : string;
+    ResultingPhrase : string;
 }

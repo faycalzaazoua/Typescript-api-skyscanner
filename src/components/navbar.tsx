@@ -6,11 +6,15 @@ export default function Vols() {
     return(
         
         <nav>
-            <Link to="/">Acceuil</Link>
+            <Link id="navbutton" to="/">Acceuil</Link>
             &ensp; &ensp;
-            <Link to="/airport">Les aeroports</Link>
+            <Link id="navbutton" to="/airport">Les aeroports</Link>
             &ensp; &ensp;
-            <Link to="/vols">Les vols</Link>
+            <Link id="navbutton" to="/vols">Les vols</Link>
+            &ensp; &ensp;
+            <Link id="navbutton" to="/favoriAirport">Mes favoris Airport</Link>
+            &ensp; &ensp;
+            <Link id="navbutton" to="/favoriFlight">Mes favoris Flight</Link>
         </nav>
 
     )
