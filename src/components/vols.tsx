@@ -67,7 +67,7 @@ const App: React.FC = () => {
     <div>
       <Wrapper>
         <Row>
-          <Header >Trouver un Aeroport </Header>
+          <Header >Trouver un Vol </Header>
         </Row>
         <Form onSubmit={getVol}>
           <Search
